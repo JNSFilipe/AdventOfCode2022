@@ -5,12 +5,12 @@ def parse_input(file_path):
 
     return data
 
-def get_marker_indices(data):
+def get_marker_indices(data, marker_len=4):
     marker = [0]*len(data)
 
     i = 0
-    while i+4 < len(data):
-        header = data[i:i+4]
+    while i+marker_len < len(data):
+        header = data[i:i+marker_len]
         if len(header) == len(set(header)):
             marker[i] = 1
         i += 1
